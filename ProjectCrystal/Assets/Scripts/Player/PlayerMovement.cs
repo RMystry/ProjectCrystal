@@ -7,15 +7,17 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
 
+    public StaminaBar staminaBar;
+
     public float moveSpeed = 5f;
     public int delay;
     Vector2 movement;
     public int dashSpeed = 25;
-    public double stamina = 100f;
+    public float stamina = 100f;
 
     private int staminaTimeDelay = 100;
 
-    public Text staminaText;
+    //public Text staminaText;
 
     public Animator animator;
 
@@ -28,16 +30,13 @@ public class PlayerMovement : MonoBehaviour
 
         movement.y = Input.GetAxisRaw("Vertical");
 
-    }
-
-    void FixedUpdate()
-    {
         //Check Dash
         if (Input.GetKeyDown("left shift") && stamina >= 10)
         {
             if (stamina > 0)
             {
                 stamina -= 10;
+                staminaBar.SetStamina(stamina);
                 delay = 100; //Delay before stamina starts to recharge
             }
 
@@ -55,15 +54,23 @@ public class PlayerMovement : MonoBehaviour
         else if (stamina < 100 && staminaTimeDelay == 0) //Check if Stamina has been used and needs recharging
         {
             stamina++;
+            staminaBar.SetStamina(stamina);
             staminaTimeDelay = 10;
         }
 
-        if(staminaTimeDelay > 0)
+        if (staminaTimeDelay > 0)
         {
             staminaTimeDelay--;
         }
 
-        staminaText.text = "Stamina: " + stamina.ToString();
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void FixedUpdate()
+    {
+        
+
+        //staminaText.text = "Stamina: " + stamina.ToString();
 
         //Check which movement animation needs to be played.
         
@@ -96,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        
     }
+    
 }
