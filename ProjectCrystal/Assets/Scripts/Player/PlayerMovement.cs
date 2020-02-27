@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    public bool isMoving = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -64,25 +66,31 @@ public class PlayerMovement : MonoBehaviour
         staminaText.text = "Stamina: " + stamina.ToString();
 
         //Check which movement animation needs to be played.
+        
         switch(movement.x)
         {
             case 1: 
                 animator.SetTrigger("Right");
+                isMoving = true;
                 break;
             case -1:
                 animator.SetTrigger("Left");
+                isMoving = true;
                 break;
             default:
                 switch(movement.y)
                 {
                     case 1:
                         animator.SetTrigger("Up");
+                        isMoving = true;
                         break;
                     case -1:
                         animator.SetTrigger("Down");
+                        isMoving = true;
                         break;
                     default:
                         animator.SetTrigger("Idle");
+                        isMoving = false;
                         break;
                 }
                 break;
