@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EnemyBullet.cs" />
      <Compile Include="Assets\Scripts\Enemies\Crawler1.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\Jumper.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\UI\ChargeBar.cs" />
      <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
+     <Compile Include="Assets\sentryShootMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

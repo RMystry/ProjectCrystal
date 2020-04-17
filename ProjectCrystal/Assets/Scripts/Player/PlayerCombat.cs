@@ -17,11 +17,20 @@ public class PlayerCombat : MonoBehaviour
     public int attackDamage;
 
     public int dirStrength = 10;
+
+    public int playerHealth;
+    public int startingHealth;
+    public HealthBar healthBar;
+
+    public bool invincible = false;
+
+    int invincibleRate = 0;
  
     // Start is called before the first frame update
     void Start()
     {
-
+        playerHealth = startingHealth;
+        healthBar.SetMaxHealth(startingHealth);
     }
 
     // Update is called once per frame
@@ -55,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
 
        
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space"))
         {
             if (attackPointDir.x != 0 || attackPointDir.y != 0)
             {
@@ -65,6 +74,19 @@ public class PlayerCombat : MonoBehaviour
             attack();
         }
 
+    }
+
+    void FixedUpdate()
+    {
+        if(invincible)
+        {
+            invincibleRate--;
+            if(invincibleRate <= 0)
+            {
+                invincible = false;
+            }
+        }
+        
     }
 
     void attack()
@@ -88,6 +110,18 @@ public class PlayerCombat : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
   
+    }
+
+    public void takeDamage(int damage)
+    {
+        if(!invincible)
+        {
+            playerHealth -= damage;
+            healthBar.SetHealth(playerHealth);
+            invincible = true;
+            invincibleRate = 100;
+        }
+        
     }
 }
 

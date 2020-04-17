@@ -8,6 +8,8 @@ public class Crawler1 :  Enemy
     private Rigidbody2D rb;
     private Vector2 movement;
     public float moveSpeed = 2;
+    public Animator animator;
+    public int damage = 10;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -19,9 +21,26 @@ public class Crawler1 :  Enemy
     {
         Vector3 direction = Player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        //rb.rotation = angle;
         direction.Normalize();
         movement = direction;
+
+        if (angle > -45f && angle < 45)
+        {
+            animator.SetTrigger("Right");
+        }
+        else if (angle > 45 && angle < 135)
+        {
+            animator.SetTrigger("Up");
+        }
+        else if (angle > 135 || angle < -135)
+        {
+            animator.SetTrigger("Left");
+        }
+        else
+        {
+            animator.SetTrigger("Down");
+        }
     }
     private void FixedUpdate()
     {
@@ -30,6 +49,19 @@ public class Crawler1 :  Enemy
     public void MoveCharacter(Vector2 dir)
     {
         rb.MovePosition((Vector2)transform.position + (dir * moveSpeed * Time.deltaTime));
+    }
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        Debug.Log("HIT");
+        
+        if (hitInfo.tag.Equals("Player"))
+        {
+            PlayerCombat player = hitInfo.GetComponent<PlayerCombat>();
+            player.takeDamage(damage);
+        }
+
+
     }
 }
 
