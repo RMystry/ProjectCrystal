@@ -12,8 +12,29 @@ public class ShootPointMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement1.x = Input.GetAxisRaw("Horizontal");
-        movement1.y = Input.GetAxisRaw("Vertical");
+
+        //Need to do movement this way to split up the distinction between the arrow keys and WASD
+
+        movement1.x = 0;
+        movement1.y = 0;
+
+        if (Input.GetKey("up"))
+        {
+            movement1.y = 1;
+        }
+        else if (Input.GetKey("down"))
+        {
+            movement1.y = -1;
+        }
+
+        if (Input.GetKey("left"))
+        {
+            movement1.x = -1;
+        }
+        else if (Input.GetKey("right"))
+        {
+            movement1.x = 1;
+        }
     }
 
     void FixedUpdate()

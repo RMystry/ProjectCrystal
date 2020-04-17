@@ -13,12 +13,13 @@ public class Weapon : MonoBehaviour
     public int maxCharge = 30;
     public int delay = 10;
     public ChargeBar chargeBar;
-    public int chargeDelay = 100;
+    public int chargeDelay = 50;
+    private int shootDelay = 25;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && charge > 0)
+        if((Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right")) && charge > 0)
         {
             chargeDelay = 200;
             if(cooldown == 0)
@@ -28,7 +29,7 @@ public class Weapon : MonoBehaviour
             }
             
         }
-        else if(Input.GetButtonDown("Fire1") && charge <=0 )
+        else if((Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right")) && charge <=0 )
         {
             cooldown = 100;
         }
@@ -37,13 +38,13 @@ public class Weapon : MonoBehaviour
             chargeDelay--;
         }
 
-        if(!(Input.GetButtonDown("Fire1")) && charge < maxCharge && delay <= 0)
+        if(!(Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right")) && charge < maxCharge && delay <= 0)
         {
             if(chargeDelay <= 0)
             {
                 charge++;
                 chargeBar.SetCharge(charge);
-                delay = 20;
+                delay = 5;
             }
             
         }
@@ -60,7 +61,17 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
-        charge--;
+        if(shootDelay <= 0)
+        {
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            charge--;
+            shootDelay = 25;
+        }
+        else
+        {
+            shootDelay--;
+        }
+        
+        
     }
 }

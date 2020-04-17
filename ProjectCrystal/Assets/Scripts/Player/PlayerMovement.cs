@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     public StaminaBar staminaBar;
 
-    public float moveSpeed = 5f;
+    public float moveSpeed;
+    public float tempSpeed;
     public int delay;
     Vector2 movement;
     public int dashSpeed = 25;
@@ -26,23 +27,51 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.x = 0;
+        movement.y = 0;
 
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey("w"))
+        {
+            movement.y = 1;
+        }
+        else if (Input.GetKey("s"))
+        {
+            movement.y = -1;
+        }
+
+        if (Input.GetKey("a"))
+        {
+            movement.x = -1;
+        }
+        else if(Input.GetKey("d"))
+        {
+            movement.x = 1;
+        }
+        
+
+
+
+
+
+
+
+        //movement.x = Input.GetAxisRaw("Horizontal");
+
+        //movement.y = Input.GetAxisRaw("Vertical");
 
         //Check Dash
         if (Input.GetKeyDown("left shift") && stamina >= 10)
         {
             if (stamina > 0)
             {
-                stamina -= 10;
+                stamina -= 33;
                 staminaBar.SetStamina(stamina);
-                delay = 100; //Delay before stamina starts to recharge
+                delay = 300; //Delay before extra speed runs out
+                tempSpeed = moveSpeed;
+                moveSpeed = 10f;
             }
 
-            movement.x *= dashSpeed;
-
-            movement.y *= dashSpeed;
+            
 
         }
 
@@ -51,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
             //Decrement delay
             delay--;
         }
+        else
+        {
+            moveSpeed = tempSpeed;
+        }
+        /*
         else if (stamina < 100 && staminaTimeDelay == 0) //Check if Stamina has been used and needs recharging
         {
             stamina++;
@@ -61,9 +95,11 @@ public class PlayerMovement : MonoBehaviour
         if (staminaTimeDelay > 0)
         {
             staminaTimeDelay--;
-        }
-
+        }*/
+        
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        
     }
 
     void FixedUpdate()

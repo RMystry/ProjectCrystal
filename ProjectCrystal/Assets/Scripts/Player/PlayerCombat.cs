@@ -28,9 +28,30 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         attackPointPos = attackPoint.position;
+        
+        attackPointDir.x = 0;
+        attackPointDir.y = 0;
 
-        attackPointDir.x = Input.GetAxisRaw("Horizontal");
-        attackPointDir.y = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey("up"))
+        {
+            attackPointDir.y = 1;
+        }
+        else if (Input.GetKey("down"))
+        {
+            attackPointDir.y = -1;
+        }
+
+        if (Input.GetKey("left"))
+        {
+            attackPointDir.x = -1;
+        }
+        else if (Input.GetKey("right"))
+        {
+            attackPointDir.x = 1;
+        }
+        
+        //attackPointDir.x = Input.GetAxisRaw("Horizontal");
+        //attackPointDir.y = Input.GetAxisRaw("Vertical");
 
        
 
