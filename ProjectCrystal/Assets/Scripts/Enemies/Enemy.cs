@@ -7,9 +7,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     public int maxHealth = 100;
     public int currentHealth;
-    public Transform Player;
+    protected Transform Player;
+    public HealthBar healthBar;
+    public SpriteRenderer renderer;
     void Start()
     {
+        renderer = this.GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
@@ -25,8 +28,9 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int damage)
     {
         //Damage Animation
-
+        StartCoroutine("Flash");
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -39,6 +43,16 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         //Die Animation
         //Disable Enemy
+    }
+
+    IEnumerator Flash()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            renderer.color = Color.red;
+            yield return null;
+        }
+        renderer.color = Color.white;
     }
 
 }

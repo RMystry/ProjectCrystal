@@ -12,6 +12,8 @@ public class Crawler1 :  Enemy
     public int damage = 10;
     void Start()
     {
+        renderer = this.GetComponent<SpriteRenderer>();
+        Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         rb = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
     }

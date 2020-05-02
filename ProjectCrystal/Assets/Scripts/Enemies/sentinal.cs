@@ -9,14 +9,18 @@ public class sentinal : Enemy
     public Animator animator;
     public int shootDelay = 0;
     public GameObject bullet;
-    public Transform firePoint;
+    private Transform firePoint;
     public bool shooting = false;
     int burst = 3;
     int burstDelay;
     void Start()
     {
+        renderer = this.GetComponent<SpriteRenderer>();
+        Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        firePoint = gameObject.transform.Find("SentryShootPoint");
         rb = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+       
     }
 
     // Update is called once per frame

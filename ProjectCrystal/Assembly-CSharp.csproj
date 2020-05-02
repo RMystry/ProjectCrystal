@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\EnemyBullet.cs" />
+     <Compile Include="Assets\EnemyHealthBar.cs" />
      <Compile Include="Assets\Scripts\Enemies\Crawler1.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\Jumper.cs" />

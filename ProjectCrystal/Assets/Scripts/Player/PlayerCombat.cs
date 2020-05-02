@@ -12,6 +12,8 @@ public class PlayerCombat : MonoBehaviour
     Vector2 attackPointPos;
     Vector2 attackPointDir;
 
+    public SpriteRenderer renderer;
+
     public float attackRange;
     public LayerMask enemyLayers;
     public int attackDamage;
@@ -114,6 +116,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        StartCoroutine("Flash");
         if(!invincible)
         {
             playerHealth -= damage;
@@ -122,6 +125,16 @@ public class PlayerCombat : MonoBehaviour
             invincibleRate = 100;
         }
         
+    }
+
+    IEnumerator Flash()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            renderer.color = Color.red;
+            yield return null;
+        }
+        renderer.color = Color.white;
     }
 }
 
