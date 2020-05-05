@@ -32,8 +32,9 @@ public class Bullet : MonoBehaviour
             enemy.takeDamage(damage);
         }
         
-        if(hitInfo.name != "Player")
+        if(hitInfo.name != "Player" && hitInfo.tag != "Player")
         {
+            Debug.Log("BULLET DESTROYED");
             Destroy(gameObject);
         }
         
