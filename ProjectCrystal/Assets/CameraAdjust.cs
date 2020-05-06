@@ -12,7 +12,8 @@ public class CameraAdjust : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Camera.main.orthographicSize = defaultSize;
+        Camera.main.transform.position = new Vector3(0, 0, -10);
     }
 
     // Update is called once per frame
@@ -21,13 +22,23 @@ public class CameraAdjust : MonoBehaviour
         
     }
 
-    public void ChangeSize(float size)
+    //Scales camera to size and moves to position (x , y)
+    public void ChangeSize(float size, Vector3 pos)
     {
         //Size can only contain 1 decimal point at most
-        this.size = size;
-        StartCoroutine("Scale");
+        //this.size = size;
+        //xPos = x;
+        //yPos = y;
+
+        //Discard this later if we want better Camera movement. For now camera just teleports to location.
+        Camera.main.orthographicSize = size;
+        Camera.main.transform.position = pos;
+
+        //StartCoroutine("Scale");
+        //StartCoroutine("Move");
     }
 
+    //Scales camera to proper size
     IEnumerator Scale()
     {
         while (Camera.main.orthographicSize != size)
@@ -45,6 +56,7 @@ public class CameraAdjust : MonoBehaviour
         
     }
 
+    //Moves camera to proper position
     IEnumerator Move()
     {
         float tempX = Camera.main.transform.position.x;
@@ -53,14 +65,27 @@ public class CameraAdjust : MonoBehaviour
         {
             
             if(Camera.main.transform.position.x < xPos)
-            {
-                Camera.main.transform.position.Set(tempX, tempY, -10);
+            {   
+                tempX += .1f;
             }
             else if(Camera.main.transform.position.x > xPos)
             {
-
+                tempX -= .1f;
             }
+
+            if (Camera.main.transform.position.y < yPos)
+            {
+                tempY += .1f;
+            }
+            else if (Camera.main.transform.position.y > yPos)
+            {
+                tempY -= .1f;
+            }
+
+            //Move Camera a small amount every frame. Give illusions of animation.
+            Camera.main.transform.position.Set(tempX, tempY, -10);
+            yield return null;
         }
-        yield return null;
+        
     }
 }
