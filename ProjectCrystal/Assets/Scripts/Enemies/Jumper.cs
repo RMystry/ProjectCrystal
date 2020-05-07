@@ -12,6 +12,7 @@ public class Jumper : Enemy
     private bool changedDir = true;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
