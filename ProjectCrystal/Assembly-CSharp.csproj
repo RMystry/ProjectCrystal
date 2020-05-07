@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraAdjust.cs" />
+     <Compile Include="Assets\Counter.cs" />
      <Compile Include="Assets\EnemyBullet.cs" />
      <Compile Include="Assets\EnemyHealthBar.cs" />
      <Compile Include="Assets\RoomEntrance.cs" />
