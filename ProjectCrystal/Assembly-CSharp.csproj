@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7831E4E9-D7E3-3F70-F605-D3D5D7C67CFF}</ProjectGuid>
+    <ProjectGuid>{3E75ABB8-8A54-B99B-924F-9557187BFE7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,24 +53,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CameraAdjust.cs" />
+     <Compile Include="Assets\Counter.cs" />
+     <Compile Include="Assets\EnemyBullet.cs" />
+     <Compile Include="Assets\EnemyHealthBar.cs" />
+     <Compile Include="Assets\RoomEntrance.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Crawler1.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Jumper.cs" />
+     <Compile Include="Assets\Scripts\Enemies\sentinal.cs" />
      <Compile Include="Assets\Scripts\Player\AttackPointMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\Bullet.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\ShootPointMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapon.cs" />
+     <Compile Include="Assets\Scripts\UI\ChargeBar.cs" />
+     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
+     <Compile Include="Assets\sentryShootMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>A:/Unity/Project Crystal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>A:/Unity/Project Crystal/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>A:/Unity/Project Crystal/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>A:/Unity/Project Crystal/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>A:/Unity/Project Crystal/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>A:/Unity/2018.4.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -274,13 +289,13 @@
  <HintPath>A:/Unity/2018.4.16f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>A:/Unity/Project Crystal/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>A:/Unity/Project Crystal/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>A:/Unity/Project Crystal/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>A:/Unity/2018.4.16f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

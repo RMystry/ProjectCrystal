@@ -7,41 +7,41 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    public float moveSpeed = 5f;
+    public StaminaBar staminaBar;
+
+    public float moveSpeed;
     public int delay;
     Vector2 movement;
     public int dashSpeed = 25;
-    public double stamina = 100f;
+    public float stamina = 100f;
 
-    private int staminaTimeDelay = 100;
+    //private int staminaTimeDelay = 100;
 
-    public Text staminaText;
+    //public Text staminaText;
 
     public Animator animator;
+
+    public bool isMoving = true;
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
+        
+        
+        //movement.x = Input.GetAxisRaw("Horizontal");
 
-        movement.y = Input.GetAxisRaw("Vertical");
+        //movement.y = Input.GetAxisRaw("Vertical");
 
-    }
-
-    void FixedUpdate()
-    {
         //Check Dash
         if (Input.GetKeyDown("left shift") && stamina >= 10)
         {
             if (stamina > 0)
             {
-                stamina -= 10;
-                delay = 100; //Delay before stamina starts to recharge
+                stamina -= 33;
+                staminaBar.SetStamina(stamina);
+                delay = 300; //Delay before extra speed runs out
+                moveSpeed = 10f;
             }
-
-            movement.x *= dashSpeed;
-
-            movement.y *= dashSpeed;
 
         }
 
@@ -50,44 +50,86 @@ public class PlayerMovement : MonoBehaviour
             //Decrement delay
             delay--;
         }
+        else
+        {
+            moveSpeed = 6f;
+        }
+        /*
         else if (stamina < 100 && staminaTimeDelay == 0) //Check if Stamina has been used and needs recharging
         {
             stamina++;
+            staminaBar.SetStamina(stamina);
             staminaTimeDelay = 10;
         }
 
-        if(staminaTimeDelay > 0)
+        if (staminaTimeDelay > 0)
         {
             staminaTimeDelay--;
-        }
+        }*/
 
-        staminaText.text = "Stamina: " + stamina.ToString();
-
-        //Check which movement animation needs to be played.
-        switch(movement.x)
+        switch (movement.x)
         {
-            case 1: 
+            case 1:
                 animator.SetTrigger("Right");
+                isMoving = true;
                 break;
             case -1:
                 animator.SetTrigger("Left");
+                isMoving = true;
                 break;
             default:
-                switch(movement.y)
+                switch (movement.y)
                 {
                     case 1:
                         animator.SetTrigger("Up");
+                        isMoving = true;
                         break;
                     case -1:
                         animator.SetTrigger("Down");
+                        isMoving = true;
                         break;
                     default:
                         animator.SetTrigger("Idle");
+                        isMoving = false;
                         break;
                 }
                 break;
         }
 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    void FixedUpdate()
+    {
+        movement.x = 0;
+        movement.y = 0;
+
+        if (Input.GetKey("w"))
+        {
+            movement.y = 1;
+        }
+        else if (Input.GetKey("s"))
+        {
+            movement.y = -1;
+        }
+
+        if (Input.GetKey("a"))
+        {
+            movement.x = -1;
+        }
+        else if (Input.GetKey("d"))
+        {
+            movement.x = 1;
+        }
+
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        //staminaText.text = "Stamina: " + stamina.ToString();
+
+        //Check which movement animation needs to be played.
+
+       
+
+        
+    }
+    
 }
