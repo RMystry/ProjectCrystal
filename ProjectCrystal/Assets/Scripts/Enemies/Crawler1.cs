@@ -53,17 +53,15 @@ public class Crawler1 :  Enemy
         rb.MovePosition((Vector2)transform.position + (dir * moveSpeed * Time.deltaTime));
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    void OnCollisionEnter2D(Collision2D hitInfo)
     {
         Debug.Log("HIT");
-        
-        if (hitInfo.tag.Equals("Player"))
+        Debug.Log(hitInfo.gameObject.tag);
+        if (hitInfo.gameObject.tag.Equals("Player"))
         {
-            PlayerCombat player = hitInfo.GetComponent<PlayerCombat>();
+            PlayerCombat player = hitInfo.gameObject.GetComponent<PlayerCombat>();
             player.takeDamage(damage);
         }
-
-
     }
 }
 
