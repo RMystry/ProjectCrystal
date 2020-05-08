@@ -13,7 +13,7 @@ public class CameraAdjust : MonoBehaviour
     void Start()
     {
         Camera.main.orthographicSize = defaultSize;
-        //Camera.main.transform.position = new Vector3(0, 0, -10);
+        Camera.main.transform.position = new Vector3(0, 0, -10);
     }
 
     // Update is called once per frame

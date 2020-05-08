@@ -291,7 +291,12 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (3)
+      value: Spawn Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wave 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbff8d3dee0e118498c33af8e2dfcfbf, type: 3}
@@ -808,7 +813,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (3)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -832,7 +837,7 @@ PrefabInstance:
     - target: {fileID: 2723231062099393936, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -447.8
+      value: -345.4
       objectReference: {fileID: 0}
     - target: {fileID: 2723231062099393937, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
@@ -852,7 +857,7 @@ PrefabInstance:
     - target: {fileID: 2723231062118751716, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -447.8
+      value: -345.4
       objectReference: {fileID: 0}
     - target: {fileID: 2723231062118751717, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
@@ -882,7 +887,7 @@ PrefabInstance:
     - target: {fileID: 2723231062354902741, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -447.8
+      value: -345.4
       objectReference: {fileID: 0}
     - target: {fileID: 2723231062579493506, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
@@ -932,12 +937,12 @@ PrefabInstance:
     - target: {fileID: 2723231063273844080, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.91
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2723231063273844080, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 65
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2723231063273844080, guid: 46f2ff678c6bf46459e0a6f2319e3ffa,
         type: 3}
@@ -1202,7 +1207,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (8)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -1576,7 +1581,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point Wave 1
+      value: Spawn Point Wave One
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -1797,7 +1802,12 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (1)
+      value: Spawn Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wave 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbff8d3dee0e118498c33af8e2dfcfbf, type: 3}
@@ -2074,7 +2084,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (2)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -2148,7 +2158,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (4)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -2739,7 +2749,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (4)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -2813,7 +2823,12 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (2)
+      value: Spawn Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wave 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbff8d3dee0e118498c33af8e2dfcfbf, type: 3}
@@ -3025,7 +3040,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (2)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -3099,7 +3114,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (1)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -3173,7 +3188,12 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point Wave 3
+      value: Spawn Point Wave Three
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wave 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbff8d3dee0e118498c33af8e2dfcfbf, type: 3}
@@ -3248,7 +3268,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (6)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -10736,7 +10756,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (1)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -38845,7 +38865,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (3)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -39060,7 +39080,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point Wave 2
+      value: Spawn Point Wave Two
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -39303,7 +39323,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (5)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -39679,7 +39699,7 @@ PrefabInstance:
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
       propertyPath: m_Name
-      value: Spawn Point (7)
+      value: Spawn Point
       objectReference: {fileID: 0}
     - target: {fileID: 4064295774147301769, guid: dbff8d3dee0e118498c33af8e2dfcfbf,
         type: 3}
@@ -40027,8 +40047,8 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.9328842
-  m_Depth: -1
+  orthographic size: 7.954794
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -40051,7 +40071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725199701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.51, y: 68.69, z: -10}
+  m_LocalPosition: {x: 0.3, y: 11.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48027,6 +48047,7 @@ MonoBehaviour:
   numOfEnemies: 0
   roomActive: 0
   waveCounter: 0
+  bossRoomActive: 0
 --- !u!4 &2065339563
 Transform:
   m_ObjectHideFlags: 0

@@ -41,7 +41,7 @@ public class RoomEntrance : MonoBehaviour
         
         //Set room size values
         roomSize[0] = 5.6f;
-        roomSize[1] = 6f;
+        roomSize[1] = 7.8f;
         roomSize[2] = 6.6f;
         roomSize[3] = 6.6f;
         roomSize[4] = 6.6f;
@@ -155,6 +155,10 @@ public class RoomEntrance : MonoBehaviour
             if(counter.getCurrentRoom() != 19)
             {
                 camera.ChangeSize(roomSize[num], roomPos[num]);
+            }
+            else
+            {
+                counter.waveCounter = 1;
             }
             
             roomNum = "" + counter.getCurrentRoom();

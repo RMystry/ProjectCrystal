@@ -32,29 +32,36 @@ public class BossRoom : MonoBehaviour
             //crystalCamera = true;
             //StartCoroutine("floatUp");
             StartCoroutine("Wait");
+            
         }
 
         //All enemies are dead
-        if(counter.getNumOfEnemies() == 0)
+        if(counter.bossRoomActive)
         {
-            if(counter.waveCounter == 1)
+            if (counter.getNumOfEnemies() == 0)
             {
-                counter.waveCounter = 2;
-                animator.SetTrigger("Idle 2");
-                StartCoroutine("WaitLonger");
-            }
-            else if(counter.waveCounter == 2)
-            {
-                counter.waveCounter = 3;
-                animator.SetTrigger("Idle 3");
-                StartCoroutine("WaitLonger");
+                counter.bossRoomActive = false;
+                if (counter.waveCounter == 1)
+                {
+                    counter.waveCounter = 2;
+                    animator.SetTrigger("Idle 2");
+                    StartCoroutine("WaitLonger");
+                }
+                else if (counter.waveCounter == 2)
+                {
+                    counter.waveCounter = 3;
+                    animator.SetTrigger("Idle 3");
+                    StartCoroutine("WaitLonger");
+                }
             }
         }
+        
     }
 
     void StartWave()
     {
-        if(counter.waveCounter == 1)
+        
+        if (counter.waveCounter == 1)
         {
             //Debug.Log("hit 1");
             foreach (SpawnPoint spawnPoint in spawnPoints)
@@ -64,6 +71,7 @@ public class BossRoom : MonoBehaviour
                     spawnPoint.SpawnEnemy();
                 }
             }
+           
         }
         else if (counter.waveCounter == 2)
         {
@@ -87,15 +95,15 @@ public class BossRoom : MonoBehaviour
                 }
             }
         }
-        
-        
+
+        counter.bossRoomActive = true;
     }
 
     IEnumerator floatUp()
     {
         for(int i = 0; i < 120; i++)
         {
-            Debug.Log("CRYSTAL MOVE");
+            //Debug.Log("CRYSTAL MOVE");
             Crystal.transform.position = new Vector3(Crystal.transform.position.x, Crystal.transform.position.y + .0005f, Crystal.transform.position.z);
             yield return null;
         }
