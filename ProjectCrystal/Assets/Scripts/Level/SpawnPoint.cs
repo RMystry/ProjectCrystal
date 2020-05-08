@@ -8,10 +8,11 @@ public class SpawnPoint : MonoBehaviour
     public Crawler1 crawler;
     public sentinal sentry;
     public Jumper jumper;
+    Counter counter;
 
     void Start()
     {
-        
+        counter = GameObject.FindObjectOfType<Counter>();
     }
 
     // Update is called once per frame
@@ -23,9 +24,13 @@ public class SpawnPoint : MonoBehaviour
     public void SpawnEnemy()
     {
         //Create random integer to determine what enemy to spawn
-        int random = (int) (Random.Range(1, 3) + .5f);
+        int random = (int) (Random.Range(1, 4) + .5f);
 
-        switch(random)
+        //Increase amount of enemies
+        counter.setNumOfEnemies(counter.getNumOfEnemies() + 1);
+        Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
+
+        switch (random)
         {
             case 1:
                 Instantiate(crawler, this.transform.position, Quaternion.identity);

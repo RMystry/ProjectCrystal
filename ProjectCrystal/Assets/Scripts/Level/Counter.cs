@@ -5,9 +5,9 @@ using UnityEngine;
 public class Counter : MonoBehaviour
 {
     int currentRoom;
-    int numOfEnemies;
+    public int numOfEnemies;
     bool[] roomCleared;
-    bool roomActive;
+    public bool roomActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +36,7 @@ public class Counter : MonoBehaviour
             {
                 //Mark room as cleared
                 roomCleared[currentRoom] = true;
+                Debug.Log("Room " + currentRoom + " Is Cleared");
                 //Deactivate room
                 roomActive = false;
             }

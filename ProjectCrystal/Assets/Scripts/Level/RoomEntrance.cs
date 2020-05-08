@@ -21,7 +21,7 @@ public class RoomEntrance : MonoBehaviour
 
     Counter counter;
 
-    GameObject[] spawnPoints;
+    SpawnPoint[] spawnPoints;
 
     string roomNum;
     
@@ -33,9 +33,9 @@ public class RoomEntrance : MonoBehaviour
         
         //Find Player
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-        
+
         //Find Spawn Points
-        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        spawnPoints = GameObject.FindObjectsOfType<SpawnPoint>();
         
         roomSize = new float[20];
         
@@ -144,21 +144,22 @@ public class RoomEntrance : MonoBehaviour
     {
         if(hitInfo.tag == "Player" && counter.getNumOfEnemies() <= 0)
         {
+            
             camera.ChangeSize(roomSize[num], roomPos[num]);
             counter.setCurrentRoom(num);
             roomNum = "" + counter.getCurrentRoom();
 
             //If room isn't cleared, spawn enemies
-            if(!counter.RoomCleared(counter.getCurrentRoom()))
+            if (!counter.RoomCleared(counter.getCurrentRoom()) && !counter.roomActive)
             {
-                foreach(GameObject spawnPoint in spawnPoints)
+                counter.roomActive = true;
+                foreach (SpawnPoint spawnPoint in spawnPoints)
                 {
-                    if(spawnPoint.name.Contains(roomNum))
+                    if (spawnPoint.tag == roomNum)
                     {
-                        spawnPoint.GetComponent<SpawnPoint>().SpawnEnemy();
+                        spawnPoint.SpawnEnemy();
                        
-                        //Increase amount of enemies
-                        counter.setNumOfEnemies(counter.getNumOfEnemies() + 1);
+                       
                     }
                 }
             }

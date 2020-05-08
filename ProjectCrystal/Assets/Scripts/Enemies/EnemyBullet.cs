@@ -6,13 +6,14 @@ public class EnemyBullet : MonoBehaviour
 {
     public float speed = 10;
     public Rigidbody2D rb;
-    public float bulletTime = 1.5f;
+    public float bulletTime;
     public int damage;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed; 
+        rb.velocity = transform.right * speed;
+        bulletTime = 2;
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class EnemyBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log("HIT");
+        //Debug.Log("HIT");
         PlayerCombat player = hitInfo.GetComponent<PlayerCombat>();
         if (hitInfo.tag.Equals("Player"))
         {

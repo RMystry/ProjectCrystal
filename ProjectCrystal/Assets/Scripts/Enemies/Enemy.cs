@@ -41,8 +41,9 @@ public class Enemy : MonoBehaviour
     }
     public void die()
     {
-        counter.setNumOfEnemies(counter.getNumOfEnemies() - 1);
-        Debug.Log("Enemy Died");
+        counter.numOfEnemies--;
+        Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
+        //Debug.Log("Enemy Died");
         Destroy(gameObject);
         
         //Die Animation
