@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Enemies\Jumper.cs" />
      <Compile Include="Assets\Scripts\Enemies\sentinal.cs" />
      <Compile Include="Assets\Scripts\Enemies\sentryShootMovement.cs" />
+     <Compile Include="Assets\Scripts\Level\Counter.cs" />
      <Compile Include="Assets\Scripts\Level\RoomEntrance.cs" />
      <Compile Include="Assets\Scripts\Level\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Player\AttackPointMovement.cs" />
@@ -70,7 +71,6 @@
      <Compile Include="Assets\Scripts\Player\ShootPointMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Weapon.cs" />
      <Compile Include="Assets\Scripts\UI\ChargeBar.cs" />
-     <Compile Include="Assets\Scripts\UI\Counter.cs" />
      <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

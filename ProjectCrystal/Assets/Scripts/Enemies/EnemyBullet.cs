@@ -6,7 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     public float speed = 10;
     public Rigidbody2D rb;
-    public float bulletTime = 1;
+    public float bulletTime = 1.5f;
     public int damage;
 
     // Start is called before the first frame update

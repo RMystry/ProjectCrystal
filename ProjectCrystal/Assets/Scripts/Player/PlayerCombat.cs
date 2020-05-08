@@ -72,7 +72,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 attackPoint.position.Set(attackPoint.position.x + (attackPointDir.x * dirStrength), attackPoint.position.y + (attackPointDir.y * dirStrength), 0);
             }
-            Debug.Log("Attacking...");
+            //Debug.Log("Attacking...");
             attack();
         }
 
@@ -101,7 +101,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().takeDamage(attackDamage);
-            Debug.Log("We hit " + enemy.name);
+            //Debug.Log("We hit " + enemy.name);
         }
     }
 

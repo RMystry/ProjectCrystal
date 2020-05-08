@@ -7,12 +7,13 @@ public class sentinal : Enemy
     private Rigidbody2D rb;
     private Vector2 movement;
     public Animator animator;
-    public int shootDelay = 0;
+    public int shootDelay;
     public GameObject bullet;
     private Transform firePoint;
     public bool shooting = false;
     int burst = 3;
     int burstDelay;
+    int randomDelay;
     void Start()
     {
         renderer = this.GetComponent<SpriteRenderer>();
@@ -20,7 +21,10 @@ public class sentinal : Enemy
         firePoint = gameObject.transform.Find("SentryShootPoint");
         rb = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-       
+        counter = GameObject.Find("Counter").GetComponent<Counter>();
+
+        shootDelay = Random.Range(0, 75);
+
     }
 
     // Update is called once per frame

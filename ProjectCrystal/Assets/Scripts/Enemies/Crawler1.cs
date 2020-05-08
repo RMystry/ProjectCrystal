@@ -16,6 +16,7 @@ public class Crawler1 :  Enemy
         Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         rb = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        counter = GameObject.Find("Counter").GetComponent<Counter>();
     }
 
     // Update is called once per frame
@@ -55,12 +56,13 @@ public class Crawler1 :  Enemy
 
     void OnCollisionEnter2D(Collision2D hitInfo)
     {
-        Debug.Log("HIT");
+        
         Debug.Log(hitInfo.gameObject.tag);
         if (hitInfo.gameObject.tag.Equals("Player"))
         {
             PlayerCombat player = hitInfo.gameObject.GetComponent<PlayerCombat>();
             player.takeDamage(damage);
+            Debug.Log("HIT");
         }
     }
 }

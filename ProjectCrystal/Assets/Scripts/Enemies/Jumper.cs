@@ -17,9 +17,11 @@ public class Jumper : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        renderer = this.GetComponent<SpriteRenderer>();
         latestDirectionChangeTime = 0f;
         calcuateNewMovementVector();
         currentHealth = maxHealth;
+        counter = GameObject.Find("Counter").GetComponent<Counter>();
     }
     void calcuateNewMovementVector()
     {

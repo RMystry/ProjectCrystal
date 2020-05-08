@@ -17,17 +17,26 @@ public class RoomEntrance : MonoBehaviour
 
     int currentRoom;
 
-    bool[] roomCleared;
-
     GameObject player;
 
     Counter counter;
+
+    GameObject[] spawnPoints;
+
+    string roomNum;
     
     // Start is called before the first frame update
     void Start()
     {
+        //Find Counter Object
         counter = GameObject.Find("Counter").GetComponent<Counter>();
+        
+        //Find Player
         player = GameObject.FindGameObjectsWithTag("Player")[0];
+        
+        //Find Spawn Points
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        
         roomSize = new float[20];
         
         //Set room size values
@@ -79,12 +88,9 @@ public class RoomEntrance : MonoBehaviour
 
         num = int.Parse(gameObject.tag);
 
-        roomCleared = new bool[20];
+        
 
-        for(int i = 0; i < roomCleared.Length; i++)
-        {
-            roomCleared[i] = false;
-        }
+        
 
         
     }
@@ -129,17 +135,34 @@ public class RoomEntrance : MonoBehaviour
                 Camera.main.transform.position = playerPos;
             }
         }
-        
 
+        //Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
         
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(hitInfo.tag == "Player")
+        if(hitInfo.tag == "Player" && counter.getNumOfEnemies() <= 0)
         {
             camera.ChangeSize(roomSize[num], roomPos[num]);
             counter.setCurrentRoom(num);
+            roomNum = "" + counter.getCurrentRoom();
+
+            //If room isn't cleared, spawn enemies
+            if(!counter.RoomCleared(counter.getCurrentRoom()))
+            {
+                foreach(GameObject spawnPoint in spawnPoints)
+                {
+                    if(spawnPoint.name.Contains(roomNum))
+                    {
+                        spawnPoint.GetComponent<SpawnPoint>().SpawnEnemy();
+                       
+                        //Increase amount of enemies
+                        counter.setNumOfEnemies(counter.getNumOfEnemies() + 1);
+                    }
+                }
+            }
+            
         }
     }
 }
