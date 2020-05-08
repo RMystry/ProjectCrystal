@@ -34,6 +34,10 @@ public class EnemyBullet : MonoBehaviour
             player.takeDamage(damage);
             Destroy(gameObject);
         }
+        else if(hitInfo.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
 
 
     }

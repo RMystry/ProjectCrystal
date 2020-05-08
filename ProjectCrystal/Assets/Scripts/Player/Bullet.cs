@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+  
         rb.velocity = transform.right * speed; //Need to fix this so that bullet speed accounts for player speed
     }
 

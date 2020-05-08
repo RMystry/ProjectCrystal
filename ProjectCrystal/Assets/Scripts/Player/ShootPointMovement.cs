@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class ShootPointMovement : MonoBehaviour
 {
+    public AudioSource gunShot;
     public GameObject player;
     public Rigidbody2D rb1;
     Vector2 movement1;
     Vector3 movement02;
     public int shootPointPos = 20;
+
+    void Start()
+    {
+        gunShot = this.GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {

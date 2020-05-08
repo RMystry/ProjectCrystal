@@ -38,13 +38,14 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            dropItem();
             die();
         }
     }
     public void die()
     {
         counter.numOfEnemies--;
-        Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
+        //Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
         //Debug.Log("Enemy Died");
         Destroy(gameObject);
         
@@ -55,14 +56,19 @@ public class Enemy : MonoBehaviour
     public void dropItem()
     {
         int rand = Random.Range(0, 100);
+        Debug.Log("Rand is: " + rand);
 
-        if(rand%33 == 0)
+        if(rand%25 == 0)
         {
             Instantiate(healthCrystal, this.transform.position, Quaternion.identity);
         }
-        else if(rand%25 == 0)
+        else if(rand%10 == 0)
         {
             Instantiate(battery, this.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("No Item Dropped");
         }
     }
 

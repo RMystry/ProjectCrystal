@@ -25,7 +25,7 @@ public class Counter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("numEnemies: " + numOfEnemies);
+        //Debug.Log("numEnemies: " + numOfEnemies);
         
 
        if(numOfEnemies > 0)

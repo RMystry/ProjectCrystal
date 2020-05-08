@@ -158,6 +158,7 @@ public class RoomEntrance : MonoBehaviour
             }
             else
             {
+                Camera.main.orthographicSize = 6;
                 counter.waveCounter = 1;
             }
             

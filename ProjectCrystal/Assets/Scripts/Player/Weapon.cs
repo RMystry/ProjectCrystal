@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject player;
+    ShootPointMovement shootPoint;
     public Transform firePoint;
     public GameObject bullet;
     public float speed = 10;
@@ -15,6 +16,11 @@ public class Weapon : MonoBehaviour
     public ChargeBar chargeBar;
     public int chargeDelay = 50;
     private int shootDelay = 25;
+
+    void Start()
+    {
+        shootPoint = GameObject.Find("ShootPoint").GetComponent<ShootPointMovement>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -61,9 +67,11 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
+        
         if(shootDelay <= 0)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
+            shootPoint.gunShot.Play();
             charge--;
             shootDelay = 25;
         }
