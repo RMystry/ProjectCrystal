@@ -12,12 +12,16 @@ public class Jumper : Enemy
     private bool changedDir = true;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
+    public Animator animator;
+    private int damage = 10;
     // Start is called before the first frame update
     void Start()
     {
+        renderer = this.GetComponent<SpriteRenderer>();
         latestDirectionChangeTime = 0f;
         calcuateNewMovementVector();
         currentHealth = maxHealth;
+        counter = GameObject.Find("Counter").GetComponent<Counter>();
     }
     void calcuateNewMovementVector()
     {
@@ -47,6 +51,16 @@ public class Jumper : Enemy
         {
             transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
             transform.position.y + (movementPerSecond.y * Time.deltaTime));
+        }
+    }
+    void OnCollisionEnter2D(Collision2D hitInfo)
+    {
+        Debug.Log("HIT");
+        Debug.Log(hitInfo.gameObject.tag);
+        if (hitInfo.gameObject.tag.Equals("Player"))
+        {
+            PlayerCombat player = hitInfo.gameObject.GetComponent<PlayerCombat>();
+            player.takeDamage(damage);
         }
     }
 }

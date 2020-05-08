@@ -53,15 +53,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraAdjust.cs" />
-     <Compile Include="Assets\Counter.cs" />
-     <Compile Include="Assets\EnemyBullet.cs" />
-     <Compile Include="Assets\EnemyHealthBar.cs" />
-     <Compile Include="Assets\RoomEntrance.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraAdjust.cs" />
      <Compile Include="Assets\Scripts\Enemies\Crawler1.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyBullet.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyHealthBar.cs" />
      <Compile Include="Assets\Scripts\Enemies\Jumper.cs" />
      <Compile Include="Assets\Scripts\Enemies\sentinal.cs" />
+     <Compile Include="Assets\Scripts\Enemies\sentryShootMovement.cs" />
+     <Compile Include="Assets\Scripts\Level\Counter.cs" />
+     <Compile Include="Assets\Scripts\Level\RoomEntrance.cs" />
+     <Compile Include="Assets\Scripts\Level\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Player\AttackPointMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Bullet.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
@@ -71,7 +73,6 @@
      <Compile Include="Assets\Scripts\UI\ChargeBar.cs" />
      <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
-     <Compile Include="Assets\sentryShootMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
     protected Transform Player;
     public HealthBar healthBar;
     public SpriteRenderer renderer;
+    protected Counter counter;
     void Start()
     {
         renderer = this.GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+        counter = GameObject.Find("Counter").GetComponent<Counter>();
     }
 
     // Update is called once per frame
@@ -39,8 +41,10 @@ public class Enemy : MonoBehaviour
     }
     public void die()
     {
+        counter.setNumOfEnemies(counter.getNumOfEnemies() - 1);
         Debug.Log("Enemy Died");
         Destroy(gameObject);
+        
         //Die Animation
         //Disable Enemy
     }
