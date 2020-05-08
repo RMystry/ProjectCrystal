@@ -14,6 +14,7 @@ public class sentinal : Enemy
     int burst = 3;
     int burstDelay;
     int randomDelay;
+    int randDelay;
     void Start()
     {
         renderer = this.GetComponent<SpriteRenderer>();
@@ -22,8 +23,8 @@ public class sentinal : Enemy
         rb = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         counter = GameObject.Find("Counter").GetComponent<Counter>();
+        randDelay = Random.Range(1, 75);
 
-        shootDelay = Random.Range(0, 75);
 
     }
 
@@ -57,27 +58,34 @@ public class sentinal : Enemy
 
     void FixedUpdate()
     {
-        if(shooting)
+        if (randDelay <= 0)
         {
-            if (burst > 0)
+            if (shooting)
             {
-                Shoot();
+                if (burst > 0)
+                {
+                    Shoot();
+                }
+                else
+                {
+                    shooting = false;
+                    burst = 3;
+                    shootDelay = 75;
+                }
+            }
+
+            if (shootDelay <= 0)
+            {
+                shooting = true;
             }
             else
             {
-                shooting = false;
-                burst = 3;
-                shootDelay = 75;
+                shootDelay--;
             }
-        }
-       
-        if(shootDelay <= 0)
-        {
-            shooting = true;
         }
         else
         {
-            shootDelay--;
+            randDelay--;
         }
         
         
@@ -85,11 +93,11 @@ public class sentinal : Enemy
 
     private void Shoot()
     {
-        if (shootDelay <= 0)
+        if (burstDelay <= 0)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
 
-            burstDelay = 40;
+            burstDelay = 10;
             burst--;
         }
         else

@@ -297,7 +297,11 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 9135355365171364747}
   renderer: {fileID: 0}
+  latestDirectionChangeTime: 0
+  puase: 0
+  changedDir: 1
   animator: {fileID: 9135355364857854703}
+  moveSpeed: 2
 --- !u!50 &9135355364857854688
 Rigidbody2D:
   serializedVersion: 4

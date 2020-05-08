@@ -4,63 +4,72 @@ using UnityEngine;
 
 public class Jumper : Enemy
 {
-    private float latestDirectionChangeTime;
+    public float latestDirectionChangeTime;
     private readonly float directionChangeTime = 2f;
-    private readonly float timer = 1f;
-    private float characterVelocity = 1f;
-    private float puase = 0f;
-    private bool changedDir = true;
-    private Vector2 movementDirection;
-    private Vector2 movementPerSecond;
+    private readonly float timer = 2f;
+    public float puase = 0f;
+    public bool changedDir = true;
     public Animator animator;
     private int damage = 10;
+    private Vector2 movement;
+    private Rigidbody2D rb;
+    public float moveSpeed = 1f;
     // Start is called before the first frame update
     void Start()
     {
         renderer = this.GetComponent<SpriteRenderer>();
-        latestDirectionChangeTime = 0f;
-        calcuateNewMovementVector();
+        latestDirectionChangeTime = Random.Range(0, 5);
         currentHealth = maxHealth;
         counter = GameObject.Find("Counter").GetComponent<Counter>();
-    }
-    void calcuateNewMovementVector()
-    {
-        //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
-        movementDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
-        movementPerSecond = movementDirection * characterVelocity;
+        rb = this.GetComponent<Rigidbody2D>();
+
     }
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - latestDirectionChangeTime > directionChangeTime)
+        Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        rb = this.GetComponent<Rigidbody2D>();
+
+        if (Time.time - latestDirectionChangeTime > directionChangeTime && !changedDir)
         {
             puase = Time.time;
-            changedDir = false;
+            Vector3 direction = Player.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            direction.Normalize();
+            movement = direction;
+            changedDir = true;
         }
-        if (Time.time - puase > timer)
+        else if (Time.time - puase > timer)
         {
             latestDirectionChangeTime = Time.time;
             puase = Time.time;
-            calcuateNewMovementVector();
-            changedDir = true;
+            changedDir = false;
         }
     }
     private void FixedUpdate()
     {
         if (changedDir)
         {
-            transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
-            transform.position.y + (movementPerSecond.y * Time.deltaTime));
+
+            MoveCharacter(movement);
         }
+    }
+    public void MoveCharacter(Vector2 dir)
+    {
+        rb.MovePosition((Vector2)transform.position + (dir * moveSpeed * Time.deltaTime));
     }
     void OnCollisionEnter2D(Collision2D hitInfo)
     {
-        Debug.Log("HIT");
-        Debug.Log(hitInfo.gameObject.tag);
+        //Debug.Log("HIT");
+        //Debug.Log(hitInfo.gameObject.tag);
         if (hitInfo.gameObject.tag.Equals("Player"))
         {
             PlayerCombat player = hitInfo.gameObject.GetComponent<PlayerCombat>();
             player.takeDamage(damage);
+        }
+        else if (hitInfo.gameObject.tag.Equals("Enemy"))
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), hitInfo.gameObject.GetComponent<Collider2D>(), true);
         }
     }
 }

@@ -57,12 +57,12 @@ public class Crawler1 :  Enemy
     void OnCollisionEnter2D(Collision2D hitInfo)
     {
         
-        Debug.Log(hitInfo.gameObject.tag);
+        //Debug.Log(hitInfo.gameObject.tag);
         if (hitInfo.gameObject.tag.Equals("Player"))
         {
             PlayerCombat player = hitInfo.gameObject.GetComponent<PlayerCombat>();
             player.takeDamage(damage);
-            Debug.Log("HIT");
+            //Debug.Log("HIT");
         }
     }
 }

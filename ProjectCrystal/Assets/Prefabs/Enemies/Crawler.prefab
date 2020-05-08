@@ -440,8 +440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  Player: {fileID: 0}
   healthBar: {fileID: 8107991940536807672}
+  renderer: {fileID: 0}
   moveSpeed: 2
   animator: {fileID: 8107991941211235741}
   damage: 10
@@ -453,7 +453,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8107991941211235739}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
