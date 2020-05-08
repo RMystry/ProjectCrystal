@@ -127,6 +127,16 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    public void heal(int health)
+    {
+        playerHealth += health;
+        if (playerHealth > startingHealth)
+        {
+            playerHealth = startingHealth;
+        }
+        healthBar.SetHealth(playerHealth);
+    }
+
     IEnumerator Flash()
     {
         for (int i = 0; i < 10; i++)

@@ -297,6 +297,9 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 9135355365171364747}
   renderer: {fileID: 0}
+  healthCrystal: {fileID: 6409936769898463403, guid: ead64c1bd9c8b9f4eab764604eb7c230,
+    type: 3}
+  battery: {fileID: 2117937253670920044, guid: bab2622716028b543acc734e2cb21b50, type: 3}
   latestDirectionChangeTime: 0
   puase: 0
   changedDir: 1

@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Battery.cs" />
+     <Compile Include="Assets\HealthCrystal.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraAdjust.cs" />
      <Compile Include="Assets\Scripts\Enemies\Crawler1.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
@@ -73,6 +75,7 @@
      <Compile Include="Assets\Scripts\Player\Weapon.cs" />
      <Compile Include="Assets\Scripts\UI\ChargeBar.cs" />
      <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\UI\PlayButton.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Matthew/Documents/GitHub/ProjectCrystal/ProjectCrystal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public HealthBar healthBar;
     public SpriteRenderer renderer;
     protected Counter counter;
+    public HealthCrystal healthCrystal;
+    public Battery battery;
     void Start()
     {
         renderer = this.GetComponent<SpriteRenderer>();
@@ -48,6 +50,20 @@ public class Enemy : MonoBehaviour
         
         //Die Animation
         //Disable Enemy
+    }
+
+    public void dropItem()
+    {
+        int rand = Random.Range(0, 100);
+
+        if(rand%33 == 0)
+        {
+            Instantiate(healthCrystal, this.transform.position, Quaternion.identity);
+        }
+        else if(rand%25 == 0)
+        {
+            Instantiate(battery, this.transform.position, Quaternion.identity);
+        }
     }
 
     IEnumerator Flash()

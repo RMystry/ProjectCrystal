@@ -292,6 +292,8 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 0}
   renderer: {fileID: 0}
+  healthCrystal: {fileID: 0}
+  battery: {fileID: 0}
   rb: {fileID: 2103472691934135667}
 --- !u!50 &2103472691934135667
 Rigidbody2D:
@@ -514,6 +516,9 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 2103472692136984495}
   renderer: {fileID: 0}
+  healthCrystal: {fileID: 6409936769898463403, guid: ead64c1bd9c8b9f4eab764604eb7c230,
+    type: 3}
+  battery: {fileID: 2117937253670920044, guid: bab2622716028b543acc734e2cb21b50, type: 3}
   animator: {fileID: 2103472692174848855}
   shootDelay: 80
   bullet: {fileID: 5075143140390294186, guid: f18dc9f065722744480680c6fc39b31c, type: 3}

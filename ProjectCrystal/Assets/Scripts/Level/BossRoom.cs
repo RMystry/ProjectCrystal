@@ -12,6 +12,8 @@ public class BossRoom : MonoBehaviour
     Counter counter;
     Animator animator;
     GameObject player;
+    IEnumerator coroutine;
+    AudioSource bossMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class BossRoom : MonoBehaviour
         counter = GameObject.FindObjectOfType<Counter>();
         animator = Crystal.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        bossMusic = this.GetComponent<AudioSource>();
         touched = -1;
     }
 
@@ -29,6 +32,9 @@ public class BossRoom : MonoBehaviour
         if(touched == 0)
         {
             touched = 1;
+            coroutine = FadeOut(Camera.main.GetComponent<AudioSource>());
+            StartCoroutine(coroutine);
+            
             //crystalCamera = true;
             //StartCoroutine("floatUp");
             StartCoroutine("Wait");
@@ -52,6 +58,10 @@ public class BossRoom : MonoBehaviour
                     counter.waveCounter = 3;
                     animator.SetTrigger("Idle 3");
                     StartCoroutine("WaitLonger");
+                }
+                else
+                {
+                    coroutine = FadeOut(bossMusic);
                 }
             }
         }
@@ -117,6 +127,7 @@ public class BossRoom : MonoBehaviour
         yield return new WaitForSeconds(5);
         //crystalCamera = false;
         StartWave();
+        bossMusic.Play();
     }
 
     IEnumerator WaitLonger()
@@ -125,6 +136,16 @@ public class BossRoom : MonoBehaviour
         yield return new WaitForSeconds(10);
         //crystalCamera = false;
         StartWave();
+    }
+
+    IEnumerator FadeOut(AudioSource source)
+    {
+        while(source.volume > 0)
+        {
+            source.volume = source.volume - 0.001f;
+            yield return null;
+        }
+        source.Stop();
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)

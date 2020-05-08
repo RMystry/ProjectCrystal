@@ -131,5 +131,15 @@ public class PlayerMovement : MonoBehaviour
 
         
     }
+
+    public void addCharge()
+    {
+        stamina += 33;
+        if(stamina > 100)
+        {
+            stamina = 100;
+        }
+        staminaBar.SetStamina(stamina);
+    }
     
 }
