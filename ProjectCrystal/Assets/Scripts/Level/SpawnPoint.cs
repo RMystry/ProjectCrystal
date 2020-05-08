@@ -28,7 +28,7 @@ public class SpawnPoint : MonoBehaviour
 
         //Increase amount of enemies
         counter.setNumOfEnemies(counter.getNumOfEnemies() + 1);
-        Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
+        //Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
 
         switch (random)
         {

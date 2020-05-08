@@ -136,6 +136,11 @@ public class RoomEntrance : MonoBehaviour
             }
         }
 
+        if(currentRoom == 19)
+        {
+            Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        }
+
         //Debug.Log("Number of Enemies: " + counter.getNumOfEnemies());
         
     }
@@ -144,13 +149,18 @@ public class RoomEntrance : MonoBehaviour
     {
         if(hitInfo.tag == "Player" && counter.getNumOfEnemies() <= 0)
         {
-            
-            camera.ChangeSize(roomSize[num], roomPos[num]);
+ 
             counter.setCurrentRoom(num);
+
+            if(counter.getCurrentRoom() != 19)
+            {
+                camera.ChangeSize(roomSize[num], roomPos[num]);
+            }
+            
             roomNum = "" + counter.getCurrentRoom();
 
             //If room isn't cleared, spawn enemies
-            if (!counter.RoomCleared(counter.getCurrentRoom()) && !counter.roomActive)
+            if (!counter.RoomCleared(counter.getCurrentRoom()) && !counter.roomActive && counter.getCurrentRoom() != 19)
             {
                 counter.roomActive = true;
                 foreach (SpawnPoint spawnPoint in spawnPoints)

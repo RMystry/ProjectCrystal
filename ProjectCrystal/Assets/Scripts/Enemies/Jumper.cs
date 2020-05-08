@@ -60,8 +60,8 @@ public class Jumper : Enemy
     }
     void OnCollisionEnter2D(Collision2D hitInfo)
     {
-        Debug.Log("HIT");
-        Debug.Log(hitInfo.gameObject.tag);
+        //Debug.Log("HIT");
+        //Debug.Log(hitInfo.gameObject.tag);
         if (hitInfo.gameObject.tag.Equals("Player"))
         {
             PlayerCombat player = hitInfo.gameObject.GetComponent<PlayerCombat>();

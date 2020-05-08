@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Enemies\Jumper.cs" />
      <Compile Include="Assets\Scripts\Enemies\sentinal.cs" />
      <Compile Include="Assets\Scripts\Enemies\sentryShootMovement.cs" />
+     <Compile Include="Assets\Scripts\Level\BossRoom.cs" />
      <Compile Include="Assets\Scripts\Level\Counter.cs" />
      <Compile Include="Assets\Scripts\Level\RoomEntrance.cs" />
      <Compile Include="Assets\Scripts\Level\SpawnPoint.cs" />

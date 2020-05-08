@@ -8,6 +8,7 @@ public class Counter : MonoBehaviour
     public int numOfEnemies;
     bool[] roomCleared;
     public bool roomActive;
+    public int waveCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,13 @@ public class Counter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If boss room
+        if(currentRoom == 19)
+        {
+            waveCounter = 1;
+            Debug.Log("waveCounter is 1");
+        }
+
        if(numOfEnemies > 0)
         {
             //Set active variable so we know to check for when the last enemy is killed
@@ -32,12 +40,17 @@ public class Counter : MonoBehaviour
        if(roomActive)
         {
             //Check for when last enemy is killed
-            if(numOfEnemies == 0)
+            if(numOfEnemies == 0 && currentRoom != 19)
             {
                 //Mark room as cleared
                 roomCleared[currentRoom] = true;
                 Debug.Log("Room " + currentRoom + " Is Cleared");
                 //Deactivate room
+                roomActive = false;
+            }
+            else if(numOfEnemies == 0 && waveCounter < 4)
+            {
+                waveCounter++;
                 roomActive = false;
             }
         }

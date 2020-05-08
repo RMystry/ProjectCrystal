@@ -26,6 +26,9 @@ TagManager:
   - 18
   - 19
   - SpawnPoint
+  - Wave 1
+  - Wave 2
+  - Wave 3
   layers:
   - Default
   - TransparentFX
